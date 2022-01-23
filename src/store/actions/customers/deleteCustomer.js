@@ -6,27 +6,25 @@ const DeleteCustomers = (payload) => {
   const online = window.navigator.onLine;
   const token = localStorage.getItem("token");
 
-  const config = {
-    headers: { Authorization: `${token}` },
-  };
-
   return (dispatch) => {
     dispatch(allStore.setLoading(true));
-    console.log(payload);
     axios
-      .delete(`https://mitramas-test.herokuapp.com/customers`, payload, config)
+      .delete(`https://mitramas-test.herokuapp.com/customers`, {
+        headers: {
+          Authorization: `${token}`,
+        },
+        data: payload,
+      })
       .then((data) => {
         swal.fire({
           icon: "success",
           text: `${data.data.message}`,
           button: "false",
         });
+        dispatch(allStore.GetCustomers());
       })
       .catch((err) => {
         if (online) {
-          console.log(err.response.data);
-          console.log("Masuk Error");
-          console.log(config);
           swal.fire({
             icon: "error",
             text: `${err.response.data}`,

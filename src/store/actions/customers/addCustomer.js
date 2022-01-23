@@ -12,7 +12,6 @@ const AddCustomers = (payload) => {
 
   return (dispatch) => {
     dispatch(allStore.setLoading(true));
-    console.log(payload);
     axios
       .post(`https://mitramas-test.herokuapp.com/customers`, payload, config)
       .then((data) => {
@@ -23,6 +22,11 @@ const AddCustomers = (payload) => {
       })
       .catch((err) => {
         if (online) {
+          dispatch(allStore.setError(err.response.data.error));
+          swal.fire({
+            icon: "error",
+            text: `${err.response.data.error}`,
+          });
           console.log(err.response);
         } else {
           console.log("your internet offline");

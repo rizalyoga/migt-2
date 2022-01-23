@@ -18,8 +18,6 @@ const EditCustomers = (payload) => {
         swal.fire({
           icon: "success",
           text: `Edit data successfully`,
-          buttons: false,
-          TimeRanges: 1000,
         });
         dispatch(allStore.SetCustomers(data.data.data));
       })

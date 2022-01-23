@@ -36,7 +36,19 @@ const AddCustomers = () => {
     const newState = formState;
     newState.status === "true" ? (newState.status = true) : (newState.status = false);
     dispatch(allStore.AddCustomer(newState));
+    if (!error) {
+      setFormState({
+        name: "",
+        address: "",
+        country: "",
+        phone_number: "",
+        job_title: "",
+        status: "",
+      });
+    }
   };
+
+  /* --------------------------------- RENDER --------------------------------- */
 
   if (!localStorage.token) {
     return <Home />;
@@ -63,6 +75,7 @@ const AddCustomers = () => {
                 type="text"
                 placeholder="Customer Name"
                 autoComplete="off"
+                value={formState.name}
                 onChange={changeValue}
                 onFocus={() => handlerError()}
                 required
@@ -78,6 +91,7 @@ const AddCustomers = () => {
                 pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}"
                 placeholder="0812-1078-1238"
                 // autoComplete="off"
+                value={formState.phone_number}
                 onChange={changeValue}
                 onFocus={() => handlerError()}
                 required
@@ -92,6 +106,7 @@ const AddCustomers = () => {
                 type="text"
                 placeholder="Customer Address"
                 autoComplete="off"
+                value={formState.address}
                 onChange={changeValue}
                 onFocus={() => handlerError()}
                 required
@@ -106,6 +121,7 @@ const AddCustomers = () => {
                 type="text"
                 placeholder="Customer Country"
                 autoComplete="off"
+                value={formState.country}
                 onChange={changeValue}
                 onFocus={() => handlerError()}
                 required
@@ -120,6 +136,7 @@ const AddCustomers = () => {
                 type="text"
                 placeholder="Customer Job"
                 autoComplete="off"
+                value={formState.job_title}
                 onChange={changeValue}
                 onFocus={() => handlerError()}
                 required

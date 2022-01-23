@@ -15,7 +15,6 @@ const SearchCustomer = (payload) => {
       .get(`https://mitramas-test.herokuapp.com/customers`, config)
       .then((data) => {
         const dataSearch = data.data.data.filter((x) => x.name.toLowerCase().includes(payload.toLowerCase()));
-        console.log("INI DATA SEARCH", dataSearch);
         dispatch(allStore.SetCustomers(dataSearch));
       })
       .catch((err) => {

@@ -1,7 +1,7 @@
 import LoginPage from "../loginPage/loginPage.jsx";
 import List from "../components/list.jsx";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import allStore from "../../store/actions/index";
 

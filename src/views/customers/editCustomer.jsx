@@ -26,7 +26,7 @@ const EditCustomers = () => {
 
   useEffect(() => {
     dispatch(allStore.GetCustomers(+id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   useEffect(() => {
     if (dataCustomer) {

@@ -64,6 +64,9 @@ const List = () => {
                       Name
                     </th>
                     <th scope="col" className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                      Address
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
                       Job
                     </th>
                     <th scope="col" className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
@@ -90,6 +93,10 @@ const List = () => {
                             <div className="text-sm text-gray-500">{person.phone_number}</div>
                           </div>
                         </div>
+                      </td>
+                      <td className="px-1 py-4 text-sm text-gray-500 text-center">
+                        <div className="text-sm font-medium text-gray-900">{person.address}</div>
+                        <div className="text-sm text-gray-500">{person.country}</div>
                       </td>
                       <td className="px-1 py-4 text-sm text-gray-500 text-center">{person.job_title}</td>
                       <td className="px-1 py-4 text-center">

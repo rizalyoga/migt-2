@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import allStore from "../../store/actions/index";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
   const [term, setTerm] = useState("");
+  const navigate = useNavigate();
 
   /* -------------------------------- SET TERM -------------------------------- */
   const changeValue = (event) => {
@@ -22,8 +24,10 @@ const SearchBar = () => {
   /* -------------------------- DISPATCH SEARCH DATA -------------------------- */
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("enter");
-    dispatch(allStore.SearchCustomer(term));
+    navigate("/");
+    setTimeout(() => {
+      dispatch(allStore.SearchCustomer(term));
+    }, 100);
   };
   // console.log(term.length);
 

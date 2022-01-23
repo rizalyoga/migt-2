@@ -1,0 +1,66 @@
+.container-form {
+  width: 100%;
+  background: #252839;
+  box-shadow: 0 0 30px #2121216b;
+  padding: 3.5em 2.5em;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* margin-top: 40%; */
+  flex-direction: column;
+  opacity: 0.9;
+}
+
+@media only screen and (max-width: 995px) {
+  .row-content {
+    padding-top: 5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 885px) {
+  .row-content {
+    padding-top: 0;
+    flex-direction: row;
+  }
+
+  .left-col {
+    display: none;
+  }
+
+  .login-form {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .screen-tab {
+    flex-basis: 100%;
+    padding: 0;
+  }
+
+  .screen-tab h3 {
+    padding-top: 1.5rem;
+  }
+
+  .dispay-background {
+    height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .screen-tab {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .form-customer {
+    padding: 10px;
+  }
+
+  .container-form-customer {
+    padding: 0;
+  }
+}

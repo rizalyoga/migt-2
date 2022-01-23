@@ -1,0 +1,175 @@
+{
+  "info": {
+    "_postman_id": "beb4bd16-5e8b-4d29-91fd-3dd528f4ae0c",
+    "name": "Customers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Customers",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjQyNzM3OTU4LCJleHAiOjE2NDI3NDE1NTgsIm5iZiI6MTY0MjczNzk1OCwianRpIjoiN3BZMEVremNVdnM0b3dDZiIsInN1YiI6OTAsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.sR9EMoV9TmakNmtStsTriCrplc5SzcHo-F0m2hUtSMQ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://mitramas-test.herokuapp.com/customers",
+          "protocol": "https",
+          "host": ["mitramas-test", "herokuapp", "com"],
+          "path": ["customers"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Customers",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjQyNzM3OTU4LCJleHAiOjE2NDI3NDE1NTgsIm5iZiI6MTY0MjczNzk1OCwianRpIjoiN3BZMEVremNVdnM0b3dDZiIsInN1YiI6OTAsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.sR9EMoV9TmakNmtStsTriCrplc5SzcHo-F0m2hUtSMQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"test\",\r\n    \"address\" : \"test\",\r\n    \"country\": \"test\",\r\n    \"phone_number\" : \"test\",\r\n    \"job_title\": \"test\",\r\n    \"status\":false\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mitramas-test.herokuapp.com/customers",
+          "protocol": "https",
+          "host": ["mitramas-test", "herokuapp", "com"],
+          "path": ["customers"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Customers",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjQxOTgwNDIwLCJleHAiOjE2NDE5ODQwMjAsIm5iZiI6MTY0MTk4MDQyMCwianRpIjoicE5ZWGF4aDJ5ckxFYmlhMyIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.PzfAat92d5CknHEei-QB7TFRSEgEtD8rxq9jtamwm50",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": 84,\r\n    \"name\": \"test1\",\r\n    \"address\" : \"test2\",\r\n    \"country\": \"test3\",\r\n    \"phone_number\" : \"test4\",\r\n    \"job_title\": \"tes5\",\r\n    \"status\":true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mitramas-test.herokuapp.com/customers",
+          "protocol": "https",
+          "host": ["mitramas-test", "herokuapp", "com"],
+          "path": ["customers"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Customers",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjQxOTgwNDIwLCJleHAiOjE2NDE5ODQwMjAsIm5iZiI6MTY0MTk4MDQyMCwianRpIjoicE5ZWGF4aDJ5ckxFYmlhMyIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.PzfAat92d5CknHEei-QB7TFRSEgEtD8rxq9jtamwm50",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": 84\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mitramas-test.herokuapp.com/customers",
+          "protocol": "https",
+          "host": ["mitramas-test", "herokuapp", "com"],
+          "path": ["customers"],
+          "query": [
+            {
+              "key": "",
+              "value": "",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"user@mig.id\",\r\n    \"password\" : 123456\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mitramas-test.herokuapp.com/auth/login",
+          "protocol": "https",
+          "host": ["mitramas-test", "herokuapp", "com"],
+          "path": ["auth", "login"],
+          "query": [
+            {
+              "key": "",
+              "value": "",
+              "disabled": true
+            }
+          ]
+        },
+        "description": "Service standart untuk melakukan session pada system MigSys."
+      },
+      "response": []
+    }
+  ]
+}

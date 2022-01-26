@@ -18,7 +18,6 @@ const SearchBar = () => {
   /* ------------------------ DEBOUNCE REALTIME SEARCH ------------------------ */
 
   useEffect(() => {
-    console.log(term);
     if (term && term.length > 0) {
       dispatch(allStore.SearchCustomer(term));
     }

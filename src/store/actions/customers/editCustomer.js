@@ -1,6 +1,7 @@
 import axios from "axios";
 import swal from "sweetalert2";
 import allStore from "../index";
+import { baseURL } from "./getCustomers";
 
 const EditCustomers = (payload) => {
   const online = window.navigator.onLine;
@@ -13,7 +14,7 @@ const EditCustomers = (payload) => {
   return (dispatch) => {
     dispatch(allStore.setLoading(true));
     axios
-      .put(`https://mitramas-test.herokuapp.com/customers`, payload, config)
+      .put(baseURL, payload, config)
       .then((data) => {
         swal.fire({
           icon: "success",

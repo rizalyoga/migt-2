@@ -1,6 +1,8 @@
 import axios from "axios";
 import allStore from "../index.js";
 
+export const baseURL = `https://mitramas-test.herokuapp.com/customers`;
+
 export const GetCustomers = (payload) => {
   const online = window.navigator.onLine;
   const token = localStorage.getItem("token");
@@ -12,7 +14,7 @@ export const GetCustomers = (payload) => {
   return (dispatch) => {
     dispatch(allStore.setLoading(true));
     axios
-      .get(`https://mitramas-test.herokuapp.com/customers`, config)
+      .get(baseURL, config)
       .then((data) => {
         if (!payload) {
           const sortList = data.data.data.sort((a, b) => a.name.localeCompare(b.name));

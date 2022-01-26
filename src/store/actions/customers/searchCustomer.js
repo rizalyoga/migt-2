@@ -1,5 +1,6 @@
 import axios from "axios";
 import allStore from "../index.js";
+import { baseURL } from "./getCustomers";
 
 const SearchCustomer = (payload) => {
   const online = window.navigator.onLine;
@@ -12,7 +13,7 @@ const SearchCustomer = (payload) => {
   return (dispatch) => {
     dispatch(allStore.setLoading(true));
     axios
-      .get(`https://mitramas-test.herokuapp.com/customers`, config)
+      .get(baseURL, config)
       .then((data) => {
         const dataSearch = data.data.data.filter((x) => x.name.toLowerCase().includes(payload.toLowerCase()));
         dispatch(allStore.SetCustomers(dataSearch));

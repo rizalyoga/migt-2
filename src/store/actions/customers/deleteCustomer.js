@@ -1,6 +1,7 @@
 import axios from "axios";
 import swal from "sweetalert2";
 import allStore from "../index";
+import { baseURL } from "./getCustomers";
 
 const DeleteCustomers = (payload) => {
   const online = window.navigator.onLine;
@@ -9,7 +10,7 @@ const DeleteCustomers = (payload) => {
   return (dispatch) => {
     dispatch(allStore.setLoading(true));
     axios
-      .delete(`https://mitramas-test.herokuapp.com/customers`, {
+      .delete(baseURL, {
         headers: {
           Authorization: `${token}`,
         },

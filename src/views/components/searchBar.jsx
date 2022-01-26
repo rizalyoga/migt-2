@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import debounce from "lodash.debounce";
 import { useNavigate } from "react-router-dom";
 import allStore from "../../store/actions/index";
 
@@ -9,17 +10,23 @@ const SearchBar = () => {
   const navigate = useNavigate();
 
   /* -------------------------------- SET TERM -------------------------------- */
-  const changeValue = (event) => {
+  const changeValue = debounce((event) => {
+    event.persist();
     setTerm(event.target.value);
-    // if (term.length === 1 || term.length === "") {
-    //   setTimeout(() => {
-    //     dispatch(allStore.GetCustomers());
-    //   }, 150);
-    // }
-    // setTimeout(() => {
-    //   dispatch(allStore.SearchCustomer(term));
-    // }, 100);
+  }, 500);
+
+  const dispatchData = () => {
+    dispatch(allStore.SearchCustomer(term));
   };
+
+  const debounceDispatchData = debounce(dispatchData, 500);
+
+  useEffect(() => {
+    console.log(term);
+    if (term && term.length > 0) {
+      debounceDispatchData();
+    }
+  }, [term]);
 
   /* -------------------------- DISPATCH SEARCH DATA -------------------------- */
   const submitHandler = (e) => {
@@ -29,7 +36,6 @@ const SearchBar = () => {
       dispatch(allStore.SearchCustomer(term));
     }, 100);
   };
-  // console.log(term.length);
 
   return (
     <>

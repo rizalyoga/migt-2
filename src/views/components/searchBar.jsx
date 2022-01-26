@@ -15,18 +15,14 @@ const SearchBar = () => {
     setTerm(event.target.value);
   }, 500);
 
-  const dispatchData = () => {
-    dispatch(allStore.SearchCustomer(term));
-  };
-
-  const debounceDispatchData = debounce(dispatchData, 500);
+  /* ------------------------ DEBOUNCE REALTIME SEARCH ------------------------ */
 
   useEffect(() => {
     console.log(term);
     if (term && term.length > 0) {
-      debounceDispatchData();
+      dispatch(allStore.SearchCustomer(term));
     }
-  }, [term]);
+  }, [term, dispatch]);
 
   /* -------------------------- DISPATCH SEARCH DATA -------------------------- */
   const submitHandler = (e) => {

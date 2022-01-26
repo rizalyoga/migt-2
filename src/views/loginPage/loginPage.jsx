@@ -26,8 +26,8 @@ const Login = () => {
         NET({
           el: myRef.current,
           THREE,
-          minHeight: 200.0,
-          minWidth: 200.0,
+          minHeight: 300.0,
+          minWidth: 300.0,
           color: 0xffffff,
           backgroundColor: 0x463465,
         })

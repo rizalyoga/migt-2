@@ -1,10 +1,11 @@
 import unknown from "../../assets/unknown.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import allStore from "../../store/actions";
 import swal from "sweetalert2";
 import "./listCustomer.css";
+import ReactPaginate from "react-paginate";
 
 const List = () => {
   const dispatch = useDispatch();
@@ -13,12 +14,37 @@ const List = () => {
   const people = useSelector(({ customers }) => customers);
   const loading = useSelector(({ loading }) => loading);
 
-  let number = 0;
+  const [offset, setOffset] = useState(0);
+  const [data, setData] = useState([]);
+  const [perPage] = useState(10);
+  const [pageCount, setPageCount] = useState(0);
 
   /* ---------------------------- GET ALL CUSTOMERS --------------------------- */
   useEffect(() => {
     dispatch(allStore.GetCustomers());
   }, [dispatch]);
+
+  /* ------------------------------- PAGINATION ------------------------------- */
+  const sliceData = async () => {
+    const datas = await people;
+    const slice = datas.slice(offset, offset + perPage);
+    setData(slice);
+    setPageCount(Math.ceil(datas.length / perPage));
+  };
+
+  useEffect(() => {
+    sliceData();
+  }, [people, offset]);
+
+  console.log(data);
+
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    // setOffset((selectedPage * perPage) % data.length);
+    setOffset(selectedPage + perPage - selectedPage);
+  };
+
+  // console.log(people);
 
   /* ------------------------------ EDIT CUSTOMER ----------------------------- */
   const goToEditPage = (id) => {
@@ -45,6 +71,8 @@ const List = () => {
         }
       });
   };
+
+  let number = 0;
 
   return (
     <div className="list-customer flex flex-col flex-wrap w-full">
@@ -80,7 +108,7 @@ const List = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {people.map((person) => (
+                  {data.map((person) => (
                     <tr className="cursor-pointer hover:bg-violet-200" key={person.id}>
                       <td className="px-6 py-3 text-center text-gray-500">{number >= 0 ? (number += 1) : <></>} </td>
                       <td className="px-6 py-4">
@@ -121,6 +149,22 @@ const List = () => {
             )}
           </div>
         </div>
+      </div>
+      <div className="pagination flex justify-center">
+        <ReactPaginate
+          className="flex px-2"
+          previousLabel={"prev"}
+          nextLabel={"next"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"}
+        />
       </div>
     </div>
   );

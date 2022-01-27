@@ -41,7 +41,7 @@ const List = () => {
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
     // setOffset((selectedPage * perPage) % data.length);
-    setOffset(selectedPage + perPage - selectedPage);
+    setOffset(selectedPage + 1);
   };
 
   // console.log(people);

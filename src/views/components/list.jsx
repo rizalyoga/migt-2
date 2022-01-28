@@ -17,6 +17,7 @@ const List = () => {
   const [offset, setOffset] = useState(0);
   const [data, setData] = useState([]);
   const [perPage] = useState(10);
+  // const [curentPage, setCurentPage] = useState();
   const [pageCount, setPageCount] = useState(0);
 
   /* ---------------------------- GET ALL CUSTOMERS --------------------------- */
@@ -36,12 +37,9 @@ const List = () => {
     sliceData();
   }, [people, offset]);
 
-  console.log(data);
-
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
-    // setOffset((selectedPage * perPage) % data.length);
-    setOffset(selectedPage + 1);
+    setOffset(selectedPage * perPage);
   };
 
   // console.log(people);

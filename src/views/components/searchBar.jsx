@@ -26,9 +26,9 @@ const SearchBar = () => {
   /* -------------------------- DISPATCH SEARCH DATA -------------------------- */
   const submitHandler = (e) => {
     e.preventDefault();
-    navigate("/");
     setTimeout(() => {
       dispatch(allStore.SearchCustomer(term));
+      // navigate({ pathname: `/`, search: `results?search_query=${term}` });
     }, 100);
   };
 

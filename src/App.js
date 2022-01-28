@@ -5,6 +5,7 @@ import Login from "./views/loginPage/loginPage.jsx";
 import Customers from "./views/customers/index.jsx";
 import AddCustomer from "./views/customers/addCustomer.jsx";
 import EditCustomer from "./views/customers/editCustomer.jsx";
+import ResultSearch from "./views/components/resultSearch.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/add-customer" element={<AddCustomer />} />
         <Route path="/edit/:id" element={<EditCustomer />} />
+        <Route path="/results?search_query=:value" element={<ResultSearch />} />
       </Routes>
     </BrowserRouter>
   );

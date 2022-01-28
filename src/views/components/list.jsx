@@ -17,7 +17,6 @@ const List = () => {
   const [offset, setOffset] = useState(0);
   const [data, setData] = useState([]);
   const [perPage] = useState(10);
-  // const [curentPage, setCurentPage] = useState();
   const [pageCount, setPageCount] = useState(0);
 
   /* ---------------------------- GET ALL CUSTOMERS --------------------------- */
@@ -41,8 +40,6 @@ const List = () => {
     const selectedPage = e.selected;
     setOffset(selectedPage * perPage);
   };
-
-  // console.log(people);
 
   /* ------------------------------ EDIT CUSTOMER ----------------------------- */
   const goToEditPage = (id) => {
@@ -148,9 +145,8 @@ const List = () => {
           </div>
         </div>
       </div>
-      <div className="pagination flex justify-center">
+      <div className="pagination flex justify-center ">
         <ReactPaginate
-          className="flex px-2"
           previousLabel={"prev"}
           nextLabel={"next"}
           breakLabel={"..."}

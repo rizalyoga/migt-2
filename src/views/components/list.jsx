@@ -7,7 +7,7 @@ import swal from "sweetalert2";
 import "./listCustomer.css";
 import ReactPaginate from "react-paginate";
 
-const List = () => {
+const List = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

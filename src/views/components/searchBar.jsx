@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import debounce from "lodash.debounce";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import allStore from "../../store/actions/index";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
   const [term, setTerm] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   /* -------------------------------- SET TERM -------------------------------- */
   const changeValue = debounce((event) => {

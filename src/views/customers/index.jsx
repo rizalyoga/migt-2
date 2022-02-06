@@ -18,9 +18,11 @@ const Customers = () => {
     if (active) {
       setActive(false);
       dispatch(allStore.GetCustomers());
+      setDisabledAC(false);
     } else {
       setActive(true);
       dispatch(allStore.listCustomer(active));
+      setDisabledAC(true);
     }
   };
 
@@ -30,25 +32,11 @@ const Customers = () => {
     if (notActive) {
       setNotActive(false);
       dispatch(allStore.listCustomer(notActive));
+      setDisabledNA(true);
     } else {
       setNotActive(true);
       dispatch(allStore.GetCustomers());
-    }
-  };
-
-  const lockActive = () => {
-    if (active) {
-      setDisabledNA(!disableNA);
-    } else {
-      setDisabledNA(disableNA);
-    }
-  };
-
-  const lockNotActive = () => {
-    if (notActive) {
-      setDisabledAC(!disableAC);
-    } else {
-      setDisabledAC(disableAC);
+      setDisabledNA(false);
     }
   };
 
@@ -67,16 +55,7 @@ const Customers = () => {
             <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.1.0/dist/flowbite.min.css" />
 
             <label htmlfor="toggle-active" className="flex items-center cursor-pointer relative mb-4">
-              <input
-                type="checkbox"
-                disabled={disableAC}
-                id="toggle-active"
-                className="sr-only"
-                onClick={() => {
-                  activeFilter();
-                  lockActive();
-                }}
-              />
+              <input type="checkbox" disabled={disableNA} id="toggle-active" className="sr-only" onClick={() => activeFilter()} />
               <div className="toggle-bg bg-gray-200 border-2 border-gray-200 h-6 w-11 rounded-full"></div>
               <span className="ml-3 text-gray-900 text-sm font-medium">
                 List by <span className="text-red-700 font-bold">Not Active</span> Customer
@@ -84,16 +63,7 @@ const Customers = () => {
             </label>
 
             <label htmlfor="toggle-active" className="flex items-center cursor-pointer relative mb-4">
-              <input
-                type="checkbox"
-                id="toggle-active"
-                disabled={disableNA}
-                className="sr-only"
-                onClick={() => {
-                  notActiveFilter();
-                  lockNotActive();
-                }}
-              />
+              <input type="checkbox" id="toggle-active" disabled={disableAC} className="sr-only" onClick={() => notActiveFilter()} />
               <div className="toggle-bg bg-gray-200 border-2 border-gray-200 h-6 w-11 rounded-full"></div>
               <span className="ml-3 text-gray-900 text-sm font-medium">
                 List by <span className="text-green-700 font-bold">Active</span> Customer

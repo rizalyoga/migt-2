@@ -67,8 +67,6 @@ const List = (props) => {
       });
   };
 
-  let number = 0;
-
   return (
     <div className="list-customer flex flex-col flex-wrap w-full">
       <div className="my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -103,9 +101,9 @@ const List = (props) => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {data.map((person) => (
+                  {data.map((person, index) => (
                     <tr className="cursor-pointer hover:bg-violet-200" key={person.id}>
-                      <td className="px-6 py-3 text-center text-gray-500">{number >= 0 ? (number += 1) : <></>} </td>
+                      <td className="px-6 py-3 text-center text-gray-500">{(index += 1)} </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">

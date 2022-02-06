@@ -3,6 +3,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "./searchBar.jsx";
+import Swal from "sweetalert2";
 import unknown from "../../assets/unknown.png";
 
 function classNames(...classes) {
@@ -25,6 +26,7 @@ export default function Navibar() {
 
   const logout = () => {
     localStorage.clear();
+    Swal.fire({ icon: "success", text: "Logout Success", showConfirmButton: false, timer: 3000 });
     navigate("/");
   };
 
@@ -42,11 +44,11 @@ export default function Navibar() {
                 <div className="flex-shrink-0 flex items-center">
                   {/* <img className="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow" /> */}
                   {/* <img className="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" /> */}
-                  <p className="block lg:hidden h-8 w-auto cursor-pointer" style={{ fontWeight: "bold", color: "white", fontSize: "1.3rem" }} onClick={() => navigate("/")}>
-                    MIG
+                  <p className="block lg:hidden h-8 pl-2 w-auto cursor-pointer" style={{ fontWeight: "bold", color: "white", fontSize: "1.3rem" }} onClick={() => navigate("/")}>
+                    YDB
                   </p>
                   <p className="hidden lg:block h-8 w-auto cursor-pointer" style={{ fontWeight: "bold", color: "white", fontSize: "1.3rem" }} onClick={() => navigate("/")}>
-                    Mitramas Infoys Global
+                    Your Dashboard
                   </p>
                 </div>
               </div>
@@ -91,6 +93,7 @@ export default function Navibar() {
                       <Menu.Item>
                         {({ active }) => (
                           <a href="#" className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")} onClick={() => logout()}>
+                            <hr className="pb-2" />
                             Sign Out
                           </a>
                         )}

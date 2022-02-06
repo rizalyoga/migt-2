@@ -62,7 +62,7 @@ const Login = () => {
         <div className="flex flex-col justify-center left-col basis-1/2 items-center " style={{ height: "100vh" }}>
           <div className="content-text">
             <h1 className="text-8xl font-bold text-white">WELCOME</h1>
-            <p className="text-white text-3xl">in Mitramas Infoys Global</p>
+            <p className="text-type anim-typewriter text-white text-3xl">To Dashboard Site</p>
           </div>
         </div>
         <div className="screen-tab flex flex-col justify-center items-center right-col basis-1/2 px-16" style={{ height: "100vh" }}>

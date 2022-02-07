@@ -92,6 +92,13 @@ export default function Navibar() {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
+                          <a href="/graph" className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")}>
+                            Graph
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
                           <a href="#" className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")} onClick={() => logout()}>
                             <hr className="pb-2" />
                             Sign Out

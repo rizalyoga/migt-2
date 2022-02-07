@@ -6,6 +6,7 @@ import Customers from "./views/customers/index.jsx";
 import AddCustomer from "./views/customers/addCustomer.jsx";
 import EditCustomer from "./views/customers/editCustomer.jsx";
 import ResultSearch from "./views/components/resultSearch.jsx";
+import BarGraph from "./views/graph/barGraph.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/add-customer" element={<AddCustomer />} />
         <Route path="/edit/:id" element={<EditCustomer />} />
         <Route path="/results?search_query=:value" element={<ResultSearch />} />
+        <Route path="/bar-graph" element={<BarGraph />} />
       </Routes>
     </BrowserRouter>
   );
